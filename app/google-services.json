@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "638451540033",
+    "firebase_url": "https://secret-sharing-4e3b5.firebaseio.com",
+    "project_id": "secret-sharing-4e3b5",
+    "storage_bucket": "secret-sharing-4e3b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638451540033:android:e1bf0508b83f668c",
+        "android_client_info": {
+          "package_name": "com.github.durazno.secretsharing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "638451540033-t3u5cri9dbikreh2kckh72q5nt68u6mb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.github.durazno.secretsharing",
+            "certificate_hash": "01c211a37ad3a0d1551d19f8f3fee0f977447a2d"
+          }
+        },
+        {
+          "client_id": "638451540033-oujthapcppvk8hl3h4if0te4bp4dtj4v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBO8XCiD1v3h6oueW8cH6NzRJg_QfVp6jw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "638451540033-oujthapcppvk8hl3h4if0te4bp4dtj4v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
