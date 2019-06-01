@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Secret Sharing</string>
+    <string name="app_name">Guardian</string>
     <string name="hint_email">example@domain.com</string>
     <string name="hint_password">password</string>
     <string name="mail">Email</string>
@@ -14,6 +14,8 @@
 
     <string name="errorMail">Enter a valid mail address</string>
     <string name="errorPassword">Between 6 and 16 alphanumeric characters</string>
+
+    <string name="generalError">Wrong email or password</string>
 
 
     <!--    String for Fingerprint UI    -->

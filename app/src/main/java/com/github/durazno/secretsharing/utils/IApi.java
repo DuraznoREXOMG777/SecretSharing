@@ -18,6 +18,10 @@ public interface IApi {
     @POST("login")
     Call<AuthResponse> login(@Field("email") String email, @Field("password") String password, @Field("device_token") String token);
 
+    @FormUrlEncoded
+    @POST("notification")
+    Call<ResponseBody> sendKey(@Header("Authorization") String token, @Field("project_id") int id, @Field("fragment") String fragment);
+
     @Headers("Content-Type: application/json")
     @GET("user")
     Call<UserResponse> user(@Header("Authorization") String token);
@@ -33,6 +37,5 @@ public interface IApi {
     @Headers("Content-Type: application/json")
     @GET("projects/leader")
     Call<ResponseBody> projectsLeader(@Header("Authorization") String token);
-
 
 }

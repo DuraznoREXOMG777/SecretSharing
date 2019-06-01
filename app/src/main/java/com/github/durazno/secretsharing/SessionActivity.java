@@ -7,19 +7,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.github.durazno.secretsharing.adapters.TabAdapter;
-import com.github.durazno.secretsharing.entities.Project;
 import com.github.durazno.secretsharing.entities.User;
 import com.github.durazno.secretsharing.fragments.ProjectList;
 import com.github.durazno.secretsharing.models.UserResponse;
 import com.github.durazno.secretsharing.utils.Constants;
-import com.github.durazno.secretsharing.adapters.ProjectAdapter;
-import com.github.durazno.secretsharing.utils.RecyclerTouchListener;
 import com.github.durazno.secretsharing.utils.RetrofitClient;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,19 +21,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

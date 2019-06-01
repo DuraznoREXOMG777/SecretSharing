@@ -89,6 +89,8 @@ public class LoginActivity extends AppCompatActivity {
     String errorMail;
     @BindString(R.string.errorPassword)
     String errorPassword;
+    @BindString(R.string.generalError)
+    String generalError;
 
     String token;
 
@@ -131,20 +133,27 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        SessionManagement sessionManagement = new SessionManagement(getApplicationContext(), SessionManagement.AUTHORIZATION);
+
         Call<AuthResponse> call = RetrofitClient.getInstance().getApi().login(emailText, passwordText, token);
         call.enqueue(new Callback<AuthResponse>() {
             @Override
             public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
-                try{
+                try {
                     AuthResponse authResponse = response.body();
                     Log.d(TAG, "onResponse: " + authResponse.getAccessToken());
                     if (response.code() == 200) {
+                        sessionManagement.setAuthorization(authResponse.getAccessToken());
+                        sessionManagement.setLogged(1);
                         startActivity(new Intent(getApplicationContext(), SessionActivity.class)
                                 .putExtra(Constants.ACCESS_TOKEN, authResponse.getAccessToken())
                                 .putExtra(Constants.TOKEN_TYPE, authResponse.getTokenType())
                                 .putExtra(Constants.EMAIL, emailText));
                     }
-                }catch(Exception e){
+                } catch (Exception e) {
+                    sessionManagement.setLogged(0);
+                    tilEmail.setError(generalError);
+                    tilPassword.setError(generalError);
                     e.printStackTrace();
                 }
             }
@@ -155,17 +164,6 @@ public class LoginActivity extends AppCompatActivity {
                 t.printStackTrace();
             }
         });
-
-
-        /*mAuth.signInWithEmailAndPassword(emailText, passwordText).addOnCompleteListener(task -> {
-            if (user == null) {
-                user = new User();
-                user.setEmail(emailText);
-                sessionManagement.setUserData(gson.toJson(user));
-            }
-
-            startActivity(new Intent(getApplicationContext(), SessionActivity.class));
-        });*/
     }
 
     private boolean validateFields() {
